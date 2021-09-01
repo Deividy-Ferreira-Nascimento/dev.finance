@@ -45,6 +45,7 @@ h2 {
 a {
     color: #49AA26;
     text-decoration: none;
+    font-size: 20px;
 }
 a:hover {
     color: #3dd705;
@@ -263,7 +264,9 @@ input {
 }
 
 .input-group small {
-    opacity: 0.4;
+    opacity: 0.6;
+    font-size: 15px;
+    
 
 }
 
