@@ -60,7 +60,7 @@ button {
     padding: 0;
     border-radius: 0.8rem;
     cursor: pointer;
-    margin-left: 20px;
+    margin-right: 20px;
 
 }
 
@@ -84,7 +84,7 @@ a.button.cancel {
     justify-content: center;
     border-radius: 0.8rem;
     opacity: 0.6;
-    margin-right: 20px;
+    margin-left: 20px;
 
 }
 
@@ -139,6 +139,12 @@ header {
 .card.total {
     
     background-color:#5bec26;
+    color: white;
+    
+}
+.card.total.negative {
+    
+    background-color:red;
     color: white;
 }
 
@@ -268,8 +274,9 @@ input {
 }
 
 
-.input-group.actions .button,
-.input-group.actions button {
+
+.input-group.actions button,
+.input-group.actions .button {
     width: 48%;
     margin-top: 15px;
     

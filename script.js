@@ -19,6 +19,8 @@ const Modal = {
 }
 
 
+
+
 const transactions = [
     {
     id: 1,
@@ -35,7 +37,7 @@ const transactions = [
     {
     id: 3,
     description: 'Internet',
-    amount: -20000,
+    amount: -200000,
     date: '23/01/2021',
     },
     {
@@ -47,10 +49,15 @@ const transactions = [
 ]
 
 const Transaction = {
+    all: transactions,
+    add(transaction) {
+        Transaction.all.push(transaction)
+        App.reload()
+    },
     incomes () {
         let income = 0;
 
-        transactions.forEach(transaction => {
+        Transaction.all.forEach(transaction => {
             if (transaction.amount > 0) {
                 income +=  transaction.amount;
             }
@@ -60,7 +67,7 @@ const Transaction = {
     expenses(){
         let expense = 0;
 
-        transactions.forEach(transaction => {
+        Transaction.all.forEach(transaction => {
             if (transaction.amount < 0) {
                 expense +=  transaction.amount;
             }
@@ -69,7 +76,21 @@ const Transaction = {
         
     },
     total() {
-        return Transaction.incomes() + Transaction.expenses()
+        let total
+        
+            
+        
+        total = Transaction.incomes() + Transaction.expenses()
+      
+        if (total< 0) {
+            document
+            .querySelector(".card.total")
+            .classList
+            .add('negative')
+        }
+        return total
+
+        
     }
 }
 
@@ -112,7 +133,11 @@ const DOM = {
         document
         .getElementById('totalDisplay')
         .innerHTML = Utils.formateCurrency(Transaction.total())
-    }
+    },
+
+    clearTransactions() {
+        DOM.transactionsContainer.innerHTML = ""
+    },
 }
 
 const Utils = {
@@ -133,10 +158,31 @@ const Utils = {
     }
 }
 
+const App = {
+    init () {
+        Transaction.all.forEach(transaction => {
+            DOM.addTransaction(transaction)
+        })
+        DOM.updateBalance()
+    },
+    reload () {
+        DOM.clearTransactions()
+        App.init()
+    },
+}
 
-transactions.forEach(function(transaction){
-    DOM.addTransaction(transaction)
+App.init()
+
+
+
+
+Transaction.add({
+    id:39,
+    description: 'alo',
+    amount: 200,
+    date: '23/01/2021'
 })
 
-DOM.updateBalance()
+
+
 
