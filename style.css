@@ -94,7 +94,7 @@ a.button.cancel:hover {
 } 
 
 header {
-    background-color: #2d4a22;
+    background-color:rgb(58, 56, 56);
     padding: 2rem 0 10rem;
     text-align: center;
 }
@@ -129,6 +129,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    font-family: cursive;
 }
 
 .card p {
@@ -154,6 +155,11 @@ header {
     display: block;
     overflow-x: auto;
 
+}
+
+#img {
+    display: inline-block;
+    cursor: pointer;
 }
 
 #data-table {
@@ -245,12 +251,12 @@ visibility: visible;
 #form form input {
     border: none;
     border-radius: 1;
+    font-family: cursive;
     
 }
 
 .input-group {
     margin-top: 0.8rem;
-    
     
 }
 
